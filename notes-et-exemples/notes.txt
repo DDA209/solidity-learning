@@ -22,7 +22,7 @@ Source : https://solidity-by-example.org/
 
 
 - PRIMITIVE :
-boolean
+bool
 uint ou uint(#)
 int ou int(#)
 address
