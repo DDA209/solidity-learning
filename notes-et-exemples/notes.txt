@@ -1,0 +1,50 @@
+Source : https://solidity-by-example.org/
+
+- CONTRAT
+    Se déclare en PascalCase.
+    -> contract RealisticTokenVesting { /* Do something */ }
+
+- FONCTION
+    Se déclare en camelCase
+    -> function get() public view returns (uint256) { /* Do something */ }
+
+    - Paramètre de fonctions
+        Commence par "_" par convention
+        -> function eatHamburgers(string _name, uint _amount) { /* Do something */ }
+
+- CONSTANTE
+    Se déclare en MAJUSCULE
+    -> uint256 public constant MY_UINT = 123;
+
+- VARIABLE
+    Se déclare en camelCase
+    -> 
+
+
+- PRIMITIVE :
+boolean
+uint ou uint(#)
+int ou int(#)
+address
+
+-    CONSTANT                    Vs                      IMMUTABLE :
+EST définie à la compilation                        PEUT être définie dynamiquement lors du déploiement
+DOIT être initialisée à la déclaration              PEUT être initialisé 
+Pas de coût pas de stockage sur chaine              Stockée dans le bytecode du contrat (pas dans le storage)
+EST utilisé pour des valeurs fixes                  EST utilisé pour des valeurs de param de déploiement
+address public constant BURN_ADDRESS = address(0);  bool public immutable isTestnet;
+voir "./constant-exemple.sol"                       voir "./immutable-exemple.sol" 
+                voir "./immutable-and-constant-full-exemple.sol"
+
+- DOCUMETATION DE CODE
+Tag         Description                                             Context
+@title      A title that should describe the contract/interface     contract, library, interface, struct, enum, enum values
+@author     The name of the author                                  contract, library, interface, struct, enum, enum values
+@notice     Explain to an end user what this does                   contract, library, interface, function, public state variable, event, struct, enum, enum values error
+@dev        Explain to a developer any extra details                contract, library, interface, function, state variable, event, struct, enum, enum values, error
+@param      Documents a parameter just like in Doxygen
+            (must be followed by parameter name)                    function, event, enum values, error
+@return     Documents the return variables of a contract’s function function, enum, enum values, public state variable
+@inheritdoc Copies all missing tags from the base function
+            (must be followed by the contract name)                 function, enum, enum values, public state variable
+@custom:... Custom tag, semantics is application-defined            everywhere

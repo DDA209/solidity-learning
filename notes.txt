@@ -1,2 +1,0 @@
-Nommenclature :
-- les noms de paramètre de fonctions commence par "_" par convention (ex. : function eatHamburgers(string _name, uint _amount) { /* Do something */ })
