@@ -1,4 +1,5 @@
-pragma solidity >=0.8.0 <0.8.9;
+// SPDX-License-Identifier: UNLICENSED 
+pragma solidity >=0.8.33 <0.8.99;
 
 contract SimpleStorage {
     uint integer = 100;
