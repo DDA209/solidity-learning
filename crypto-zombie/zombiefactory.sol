@@ -11,21 +11,26 @@ contract ZombieFactory is Ownable {
 
     event NewZombie(uint zombieId, string name, uint dna);
 
+    // entiers non signés uint == uint256 (uint8, uint16, uint32... uint%8)
     uint dnaDigits = 16;
     uint dnaModulus = 10 ** dnaDigits;
 
+    // comme un objet TypeScript
     struct Zombie {
         string name;
         uint dna;
     }
 
+    // "zombies" est un tableau dynamique remplis de Zombie. On peut donner une taille définie aux tableaux avec "uint32[100] public myLimitedNumbers;" "myLimitedNumbers" ne pourra contenir que 100 nombres de type "uint32"
     Zombie[] public zombies;
 
     mapping (uint => address) public zombieToOwner;
     mapping (address => uint) ownerZombieCount;
 
+    // déclaration et construction d'une fonction avec le mot clé "function"
     function _createZombie(string _name, uint _dna) internal {
         uint id = zombies.push(Zombie(_name, _dna)) - 1;
+        // msg.sender est le déployeur du contrat
         zombieToOwner[id] = msg.sender;
         ownerZombieCount[msg.sender]++;
         NewZombie(id, _name, _dna);
